@@ -13,3 +13,8 @@ jobs:
           node-version: '12.x'
       - run: yarn install
       - run: yarn run build
+      - name: Archive public artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: build
+          path: public
