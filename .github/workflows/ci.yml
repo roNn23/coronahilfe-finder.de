@@ -22,13 +22,17 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy to Staging server
-      uses: Pendect/action-rsyncer@v1.1.0
-      env:
-        DEPLOY_KEY: ${{secrets.SERVER_SSH_KEY}}
-      with:
-        flags: '--delete -ravb --progress'
-        options: ''
-        ssh_options: ''
-        src: 'public/'
-        dest: '${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.REMOTE_TARGET }}'
+      - name: Download build
+        uses: actions/download-artifact@v1
+        with:
+          name: build
+      - name: Deploy to Staging server
+        uses: Pendect/action-rsyncer@v1.1.0
+        env:
+          DEPLOY_KEY: ${{secrets.SERVER_SSH_KEY}}
+        with:
+          flags: '--delete -ravb --progress'
+          options: ''
+          ssh_options: ''
+          src: 'build'
+          dest: '${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.REMOTE_TARGET }}'
