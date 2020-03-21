@@ -1,0 +1,172 @@
+// https://themestr.app/theme > Lovey
+$primary: #d80e70;
+$secondary: #dddddd;
+$success: #4ef037;
+$danger: #fa4659;
+$info: #00bbf0;
+$warning: #f4f133;
+$light: #ebf2fa;
+$dark: #353535;
+$enable-gradients: true;
+$border-width: 0;
+$btn-border-radius: 1.35rem;
+$spacer: 1.5rem;
+
+$dark-blues: ();
+$dark-blues: map-merge(
+  (
+    100: #e8f1f4,
+    200: #a4c7d5,
+    300: #76abc0,
+    400: #3281a1,
+    500: #05668d,
+    600: #055474,
+    700: #03384d,
+    800: #022634,
+    900: #010a0d
+  ),
+  $dark-blues
+);
+
+$light-blues: ();
+$light-blues: map-merge(
+  (
+    100: #edf2f6,
+    200: #bacedc,
+    300: #86aac3,
+    400: #6492b2,
+    500: #427aa1,
+    600: #376484,
+    700: #2a4e67,
+    800: #182d3b,
+    900: #060c0f
+  ),
+  $light-blues
+);
+
+$dark-greens: ();
+$dark-greens: map-merge(
+  (
+    100: #f1f5ec,
+    200: #c7d8b5,
+    300: #9eba7f,
+    400: #82a75a,
+    500: #679436,
+    600: #557a2d,
+    700: #425f23,
+    800: #263614,
+    900: #0a0e05
+  ),
+  $dark-greens
+);
+
+$light-greens: ();
+$light-greens: map-merge(
+  (
+    100: #f6f9e7,
+    200: #dee7a2,
+    300: #c5d55c,
+    400: #b5c92e,
+    500: #a5be00,
+    600: #889c00,
+    700: #6a7900,
+    800: #3c4600,
+    900: #0f1200
+  ),
+  $light-greens
+);
+
+$grays: ();
+$grays: map-merge(
+  (
+    100: #eef4fa,
+    200: #ebf2fa,
+    300: #c1c7cd,
+    400: #969ba0,
+    500: #6b6e72,
+    600: #56585b,
+    700: #414245,
+    800: #2b2c2e,
+    900: #161617
+  ),
+  $grays
+);
+
+$greys: $grays;
+
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge(
+  (
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
+    3: $spacer * 0.75,
+    4: $spacer * 1,
+    5: $spacer * 1.5,
+    6: $spacer * 2,
+    7: $spacer * 3,
+    8: $spacer * 4,
+    9: $spacer * 6,
+    10: $spacer * 8,
+    11: $spacer * 12,
+    12: $spacer * 16,
+    13: $spacer * 24,
+    14: $spacer * 32,
+    15: $spacer * 40
+  ),
+  $spacers
+);
+
+$color-dark-blue: map-get($dark-blues, 500);
+$color-light-blue: map-get($light-blues, 500);
+$color-dark-green: map-get($dark-greens, 500);
+$color-light-green: map-get($light-greens, 500);
+$color-grey: map-get($greys, 500);
+$color-gray: $color-grey;
+$color-white: #ebf2fa;
+$color-black: #151515;
+
+$white: $color-white !default;
+$gray-100: map-get($grays, 100) !default;
+$gray-200: map-get($grays, 200) !default;
+$gray-300: map-get($grays, 300) !default;
+$gray-400: map-get($grays, 400) !default;
+$gray-500: map-get($grays, 500) !default;
+$gray-600: map-get($grays, 600) !default;
+$gray-700: map-get($grays, 700) !default;
+$gray-800: map-get($grays, 800) !default;
+$gray-900: map-get($grays, 900) !default;
+$black: $color-black !default;
+$body-color: $black;
+
+$grid-gutter-width: 45px !default;
+$enable-responsive-font-sizes: true !default;
+
+@import url('https://fonts.googleapis.com/css?family=Baloo+2&display=swap');
+$font-family-sans-serif: 'Baloo 2', 'sans-serif';
+$headings-font-family: 'Baloo 2', 'sans-serif';
+$headings-font-weight: 700;
+$headings-color: map-get($dark-blues, 500);
+
+$font-size-base: 1.25rem !default; // Assumes the browser default, typically `16px`
+$font-size-lg: $font-size-base * 1.25 !default;
+$font-size-md: $font-size-base * 0.875 !default;
+$font-size-sm: $font-size-base * 0.8 !default;
+
+$h1-font-size: $font-size-base * 1.8 !default;
+$h2-font-size: $font-size-base * 1.4 !default;
+$h3-font-size: $font-size-base * 1.25 !default;
+$h4-font-size: $font-size-base * 1.1 !default;
+$h5-font-size: $font-size-base * 0.9 !default;
+$h6-font-size: $font-size-base !default;
+
+$lead-font-size: $font-size-base * 2.25 !default;
+
+$link-color: map-get($grays, 1000) !default;
+$link-decoration: underline !default;
+$link-hover-color: map-get($grays, 700) !default;
+$link-hover-decoration: none !default;
+
+$box-shadow-sm: 0 3px 6px 0 rgba($color-black, 0.15), 0 2px 4px 0 rgba($color-black, 0.12) !default;
+$box-shadow: 0 3px 6px 0 rgba($color-black, 0.15), 0 2px 4px 0 rgba($color-black, 0.12) !default;
+$box-shadow-lg: 0 3px 6px 0 rgba($color-black, 0.15), 0 2px 4px 0 rgba($color-black, 0.12) !default;
