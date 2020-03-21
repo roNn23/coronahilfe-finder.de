@@ -34,5 +34,5 @@ jobs:
           flags: '--delete -ravb --progress'
           options: ''
           ssh_options: ''
-          src: 'build'
+          src: 'build/.'
           dest: '${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.REMOTE_TARGET }}'
