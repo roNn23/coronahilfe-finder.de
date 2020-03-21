@@ -62,13 +62,11 @@
   "lint-staged": {
     "*.{js,jsx,md}": [
       "prettier --write",
-      "eslint --config .eslintrc --fix",
-      "git add"
+      "eslint --config .eslintrc --fix"
     ],
     "*.scss": [
       "prettier --write",
-      "stylelint --syntax=scss --fix",
-      "git add"
+      "stylelint --syntax=scss --fix"
     ]
   }
 }
