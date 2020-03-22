@@ -11,7 +11,7 @@ const Locations = ({ lat, lon }) => {
     const [boundTopLeft, boundBottomRight] = getBoundsOfDistance({ latitude: lat, longitude: lon }, 1000)
 
     const client = new DirectusSDK({
-      url: 'https://corona-hilfe-finder.de/directus/public/',
+      url: 'https://directus.coronahilfe-finder.de',
       project: 'coronahilfe-finder',
       storage: window.localStorage,
     })
