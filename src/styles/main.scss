@@ -32,6 +32,8 @@
 
 html {
   background: $color-white;
+  border-top: 5px solid map-get($light-greens, 500);
+  border-bottom: 5px solid map-get($light-blues, 500);
 }
 
 body {
