@@ -10,7 +10,7 @@ const Locations = ({ lat, lon }) => {
   const [countryLocations, setCountryLocations] = useState(null)
 
   useEffect(() => {
-    const [boundTopLeft, boundBottomRight] = getBoundsOfDistance({ latitude: lat, longitude: lon }, 10000)
+    const [boundTopLeft, boundBottomRight] = getBoundsOfDistance({ latitude: lat, longitude: lon }, 25000)
     const client = new DirectusSDK({
       url: 'https://directus.coronahilfe-finder.de',
       project: 'coronahilfe-finder',
