@@ -5,7 +5,8 @@ import './Locations.scss'
 import PropTypes from 'prop-types'
 
 const Locations = ({ lat, lon }) => {
-  const [locations, setLocations] = useState(null)
+  const [localLocations, setLocalLocations] = useState(null)
+  const [countryLocations, setCountryLocations] = useState(null)
 
   useEffect(() => {
     const [boundTopLeft, boundBottomRight] = getBoundsOfDistance({ latitude: lat, longitude: lon }, 1000)
@@ -30,16 +31,44 @@ const Locations = ({ lat, lon }) => {
         },
       })
       .then(({ data }) => {
-        setLocations(data)
+        setLocalLocations(data)
       })
     // todo .catch(error => console.error(error))
+
+    client
+      .getItems('locations', {
+        filter: {
+          country: {
+            nnull: true,
+          },
+          city: {
+            null: true,
+          },
+        },
+      })
+      .then(({ data }) => {
+        setCountryLocations(data)
+      })
   }, [])
 
   return (
     <div className="comp-locations">
-      {locations && (
+      <h2>Ergebnisse für deine Stadt</h2>
+      {localLocations && (
+        <ul className="comp-locations__list mb-5">
+          {localLocations.map(({ id, title, description, phone }) => (
+            <li key={id} className="comp-locations__list-item">
+              <h2>{title}</h2>
+              <p dangerouslySetInnerHTML={{ __html: description }}></p>
+              <p>Phone: {phone}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+      <h2>Angebote in ganz Deutschland</h2>
+      {countryLocations && (
         <ul className="comp-locations__list">
-          {locations.map(({ id, title, description, phone }) => (
+          {countryLocations.map(({ id, title, description, phone }) => (
             <li key={id} className="comp-locations__list-item">
               <h2>{title}</h2>
               <p dangerouslySetInnerHTML={{ __html: description }}></p>
@@ -53,8 +82,8 @@ const Locations = ({ lat, lon }) => {
 }
 
 Locations.propTypes = {
-  lat: PropTypes.number,
-  lon: PropTypes.number,
+  lat: PropTypes.string,
+  lon: PropTypes.string,
 }
 
 export default Locations
