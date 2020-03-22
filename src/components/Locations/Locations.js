@@ -53,11 +53,14 @@ const Locations = ({ lat, lon }) => {
       <h2>Ergebnisse für deine Stadt</h2>
       {localLocations && (
         <ul className="comp-locations__list mb-5">
-          {localLocations.map(({ id, title, description, phone }) => (
+          {localLocations.map(({ id, title, description, phone, website }) => (
             <li key={id} className="comp-locations__list-item">
               <h2>{title}</h2>
               <p dangerouslySetInnerHTML={{ __html: description }}></p>
               {phone.length > 0 && <p>Telefon: {phone}</p>}
+              <a href={website} target="_blank" rel="noopener noreferrer">
+                {website}
+              </a>
             </li>
           ))}
         </ul>
@@ -65,11 +68,14 @@ const Locations = ({ lat, lon }) => {
       <h2>Angebote in ganz Deutschland</h2>
       {countryLocations && (
         <ul className="comp-locations__list">
-          {countryLocations.map(({ id, title, description, phone }) => (
+          {countryLocations.map(({ id, title, description, phone, website }) => (
             <li key={id} className="comp-locations__list-item">
               <h2>{title}</h2>
               <p dangerouslySetInnerHTML={{ __html: description }}></p>
               {phone.length > 0 && <p>Telefon: {phone}</p>}
+              <a href={website} target="_blank" rel="noopener noreferrer">
+                {website}
+              </a>
             </li>
           ))}
         </ul>
