@@ -50,7 +50,7 @@ const Locations = ({ lat, lon }) => {
 
   return (
     <div className="comp-locations">
-      <h2>Ergebnisse für deine Stadt</h2>
+      <h2 className="comp-locations__headline">Ergebnisse für deine Stadt</h2>
       {localLocations && (
         <ul className="comp-locations__list mb-5">
           {localLocations.map(({ id, title, description, phone, website }) => (
@@ -65,7 +65,7 @@ const Locations = ({ lat, lon }) => {
           ))}
         </ul>
       )}
-      <h2>Angebote in ganz Deutschland</h2>
+      <h2 className="comp-locations__headline">Angebote in ganz Deutschland</h2>
       {countryLocations && (
         <ul className="comp-locations__list">
           {countryLocations.map(({ id, title, description, phone, website }) => (

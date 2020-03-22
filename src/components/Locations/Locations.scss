@@ -4,6 +4,10 @@
 @import '../../../node_modules/bootstrap/scss/mixins';
 
 .comp-locations {
+  &__headline {
+    margin-bottom: spacerMap(2);
+  }
+
   &__list {
     list-style: none;
     margin: 0;
