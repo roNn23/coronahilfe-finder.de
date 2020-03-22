@@ -30,8 +30,12 @@ const AddressSearch = ({ onAddressFound }) => {
         onSubmit={(values, { setSubmitting }) => {
           searchNominatim(values.postalcode)
             .then(results => {
-              var { lat, lon, display_name } = results[0]
-              setAddress({ lat, lon, display_name })
+              var {
+                lat,
+                lon,
+                address: { town, city },
+              } = results[0]
+              setAddress({ lat, lon, city: town || city })
               setError(false)
               setSubmitting(false)
             })
@@ -58,8 +62,7 @@ const AddressSearch = ({ onAddressFound }) => {
             </button>
             {address && (
               <p>
-                Folgende Stadt wurde gefunden: <br />
-                <strong>{address.display_name}</strong>
+                Folgende Stadt wurde gefunden: <strong>{address.city}</strong>
                 <br />
                 <button onClick={handleNewSearchClick.bind(null, resetForm)}>Neue Suche starten</button>
               </p>
