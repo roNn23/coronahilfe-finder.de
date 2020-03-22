@@ -164,13 +164,13 @@ $body-color: $black;
 $grid-gutter-width: 45px !default;
 $enable-responsive-font-sizes: true !default;
 
-@import url('https://fonts.googleapis.com/css?family=Baloo+2&display=swap');
-$font-family-sans-serif: 'Baloo 2', 'sans-serif';
+@import url('https://fonts.googleapis.com/css?family=Baloo+2:400|Montserrat:400,700&display=swap');
+$font-family-sans-serif: 'Montserrat', 'sans-serif';
 $headings-font-family: 'Baloo 2', 'sans-serif';
-$headings-font-weight: 700;
+$headings-font-weight: 400;
 $headings-color: map-get($dark-blues, 500);
 
-$font-size-base: 1.25rem !default; // Assumes the browser default, typically `16px`
+$font-size-base: 1.1rem !default; // Assumes the browser default, typically `16px`
 $font-size-lg: $font-size-base * 1.25 !default;
 $font-size-md: $font-size-base * 0.875 !default;
 $font-size-sm: $font-size-base * 0.8 !default;
