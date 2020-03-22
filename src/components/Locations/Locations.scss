@@ -1,0 +1,21 @@
+@import '../../styles/variables';
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/mixins';
+
+.comp-locations {
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__list-item {
+    border: 1px solid colorMap(green, light);
+    padding: map-get($spacers, 5);
+
+    &:not(:last-child) {
+      margin-bottom: spacerMap(5);
+    }
+  }
+}

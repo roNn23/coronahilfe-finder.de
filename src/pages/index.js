@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import Content from '../components/Content'
 import AddressSearch from '../components/AddressSearch'
-import { Link } from 'gatsby'
+import Locations from '../components/Locations'
 
 const IndexPage = () => {
+  const [address, setAddress] = useState(null)
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -20,14 +21,17 @@ const IndexPage = () => {
     `,
   )
 
+  const handleAddressFound = address => {
+    setAddress(address)
+  }
+
   return (
     <Layout>
       <SEO title={site.siteMetadata.title} useTemplate={false} />
       <Content padding>
         <h1>Coronahilfe Finder</h1>
-        <p className="pb-4">Hallo Welt!</p>
-        <AddressSearch />
-        <Link to="/subpage">Unterseite</Link>
+        <AddressSearch onAddressFound={handleAddressFound} />
+        {address && <Locations lat={address.lat} lon={address.lon} />}
       </Content>
     </Layout>
   )

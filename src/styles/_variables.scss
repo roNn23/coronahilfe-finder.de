@@ -126,6 +126,28 @@ $color-gray: $color-grey;
 $color-white: #ebf2fa;
 $color-black: #151515;
 
+@function colorMap($colorName, $tone, $intensity: 500) {
+  $colorNameMap: (
+    green: (
+      light: $light-greens,
+      dark: $dark-greens
+    ),
+    blue: (
+      light: $light-blues,
+      dark: $dark-blues
+    )
+  );
+  @return map-get(map-get(map-get($colorNameMap, $colorName), $tone), $intensity);
+}
+
+@function grayMap($intensity: 500) {
+  @return map-get($grays, $intensity);
+}
+
+@function spacerMap($spacerValue: 1) {
+  @return map-get($spacers, $spacerValue);
+}
+
 $white: $color-white !default;
 $gray-100: map-get($grays, 100) !default;
 $gray-200: map-get($grays, 200) !default;
