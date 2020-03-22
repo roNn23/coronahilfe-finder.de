@@ -30,7 +30,7 @@ const IndexPage = () => {
       <SEO title={site.siteMetadata.title} useTemplate={false} />
       <Content padding>
         <h1>Coronahilfe Finder</h1>
-        <div className="mb-5">
+        <div className="mb-7">
           <AddressSearch onAddressFound={handleAddressFound} />
         </div>
         {address && <Locations lat={address.lat} lon={address.lon} />}

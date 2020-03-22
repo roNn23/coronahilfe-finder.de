@@ -1,17 +1,3 @@
-// https://themestr.app/theme > Lovey
-$primary: #d80e70;
-$secondary: #dddddd;
-$success: #4ef037;
-$danger: #fa4659;
-$info: #00bbf0;
-$warning: #f4f133;
-$light: #ebf2fa;
-$dark: #353535;
-$enable-gradients: true;
-$border-width: 0;
-$btn-border-radius: 1.35rem;
-$spacer: 1.5rem;
-
 $dark-blues: ();
 $dark-blues: map-merge(
   (
@@ -160,6 +146,19 @@ $gray-800: map-get($grays, 800) !default;
 $gray-900: map-get($grays, 900) !default;
 $black: $color-black !default;
 $body-color: $black;
+
+$primary: colorMap(green, dark);
+$secondary: #dddddd;
+$success: #4ef037;
+$danger: #fa4659;
+$info: #00bbf0;
+$warning: #f4f133;
+$light: #ebf2fa;
+$dark: #353535;
+$enable-gradients: true;
+$border-width: 0;
+$btn-border-radius: 5px;
+$spacer: 1.5rem;
 
 $grid-gutter-width: 45px !default;
 $enable-responsive-font-sizes: true !default;

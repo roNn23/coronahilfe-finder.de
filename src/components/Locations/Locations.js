@@ -53,7 +53,7 @@ const Locations = ({ lat, lon }) => {
     <div className="comp-locations">
       <h2 className="comp-locations__headline">Ergebnisse für deine Stadt</h2>
       {localLocations && (
-        <ul className="comp-locations__list mb-5">
+        <ul className="comp-locations__list mb-7">
           {localLocations.map(locationData => (
             <LocationsListItem {...locationData} key={locationData.id} />
           ))}

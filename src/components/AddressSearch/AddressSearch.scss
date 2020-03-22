@@ -1,0 +1,25 @@
+@import '../../styles/variables';
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/mixins';
+
+.comp-address-search {
+  &__form {
+    text-align: center;
+  }
+
+  &__input {
+    padding: spacerMap(3);
+    width: 100%;
+    border: 1px solid colorMap(green, dark);
+    font-size: $font-size-md;
+  }
+
+  &__submit {
+    margin-top: spacerMap(5);
+  }
+
+  &__reset {
+    margin-top: spacerMap(3);
+  }
+}

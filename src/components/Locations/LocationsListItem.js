@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const LocationsListItem = ({ title, description, phone, website }) => {
   return (
     <li className="comp-locations__list-item">
-      <h2>{title}</h2>
+      <h3>{title}</h3>
       {description && <p dangerouslySetInnerHTML={{ __html: description }}></p>}
       {phone.length > 0 && <p>Telefon: {phone}</p>}
       {website && (

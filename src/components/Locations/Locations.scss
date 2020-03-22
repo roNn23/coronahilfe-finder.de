@@ -5,7 +5,7 @@
 
 .comp-locations {
   &__headline {
-    margin-bottom: spacerMap(2);
+    margin-bottom: spacerMap(3);
   }
 
   &__list {
@@ -19,7 +19,7 @@
     padding: spacerMap(4);
 
     &:not(:last-child) {
-      margin-bottom: spacerMap(3);
+      margin-bottom: spacerMap(4);
     }
   }
 }
