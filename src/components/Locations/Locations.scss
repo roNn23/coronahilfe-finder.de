@@ -15,11 +15,11 @@
   }
 
   &__list-item {
-    border: 1px solid colorMap(green, light);
-    padding: map-get($spacers, 5);
+    border: 1px solid grayMap(300);
+    padding: spacerMap(4);
 
     &:not(:last-child) {
-      margin-bottom: spacerMap(5);
+      margin-bottom: spacerMap(3);
     }
   }
 }
