@@ -3,6 +3,7 @@ import DirectusSDK from '@directus/sdk-js'
 import { getBoundsOfDistance } from 'geolib'
 import './Locations.scss'
 import PropTypes from 'prop-types'
+import LocationsListItem from './LocationsListItem'
 
 const Locations = ({ lat, lon }) => {
   const [localLocations, setLocalLocations] = useState(null)
@@ -53,30 +54,16 @@ const Locations = ({ lat, lon }) => {
       <h2 className="comp-locations__headline">Ergebnisse für deine Stadt</h2>
       {localLocations && (
         <ul className="comp-locations__list mb-5">
-          {localLocations.map(({ id, title, description, phone, website }) => (
-            <li key={id} className="comp-locations__list-item">
-              <h2>{title}</h2>
-              <p dangerouslySetInnerHTML={{ __html: description }}></p>
-              {phone.length > 0 && <p>Telefon: {phone}</p>}
-              <a href={website} target="_blank" rel="noopener noreferrer">
-                {website}
-              </a>
-            </li>
+          {localLocations.map(locationData => (
+            <LocationsListItem {...locationData} key={locationData.id} />
           ))}
         </ul>
       )}
       <h2 className="comp-locations__headline">Angebote in ganz Deutschland</h2>
       {countryLocations && (
         <ul className="comp-locations__list">
-          {countryLocations.map(({ id, title, description, phone, website }) => (
-            <li key={id} className="comp-locations__list-item">
-              <h2>{title}</h2>
-              <p dangerouslySetInnerHTML={{ __html: description }}></p>
-              {phone.length > 0 && <p>Telefon: {phone}</p>}
-              <a href={website} target="_blank" rel="noopener noreferrer">
-                {website}
-              </a>
-            </li>
+          {countryLocations.map(locationData => (
+            <LocationsListItem {...locationData} key={locationData.id} />
           ))}
         </ul>
       )}
