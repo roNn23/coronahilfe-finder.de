@@ -9,8 +9,7 @@ const Locations = ({ lat, lon }) => {
   const [countryLocations, setCountryLocations] = useState(null)
 
   useEffect(() => {
-    const [boundTopLeft, boundBottomRight] = getBoundsOfDistance({ latitude: lat, longitude: lon }, 1000)
-
+    const [boundTopLeft, boundBottomRight] = getBoundsOfDistance({ latitude: lat, longitude: lon }, 10000)
     const client = new DirectusSDK({
       url: 'https://directus.coronahilfe-finder.de',
       project: 'coronahilfe-finder',
@@ -21,12 +20,10 @@ const Locations = ({ lat, lon }) => {
       .getItems('locations', {
         filter: {
           lat: {
-            gt: boundTopLeft.latitude,
-            lt: boundBottomRight.latitude,
+            between: `${boundTopLeft.latitude},${boundBottomRight.latitude}`,
           },
           lng: {
-            gt: boundTopLeft.longitude,
-            lt: boundBottomRight.longitude,
+            between: `${boundTopLeft.longitude},${boundBottomRight.longitude}`,
           },
         },
       })
