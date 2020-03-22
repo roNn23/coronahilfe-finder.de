@@ -5,14 +5,14 @@
 
 .component-footer {
   text-align: center;
-  padding: map-get($spacers, 6) map-get($spacers, 2);
+  padding: spacerMap(3) spacerMap(2);
 
   @include media-breakpoint-up(md) {
-    padding: map-get($spacers, 7) 0;
+    padding: spacerMap(4) 0;
   }
 
   @include media-breakpoint-up(lg) {
-    padding: map-get($spacers, 8) 0;
+    padding: spacerMap(5) 0;
   }
 
   &__link {
@@ -20,7 +20,7 @@
     color: map-get($dark-greens, 500);
 
     &:not(:last-child) {
-      margin-right: map-get($spacers, 3);
+      margin-right: spacerMap(3);
     }
   }
 
