@@ -9,6 +9,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.4.1",
+    "formik": "^2.1.4",
     "gatsby": "^2.20.2",
     "gatsby-image": "^2.3.0",
     "gatsby-plugin-manifest": "^2.3.1",
@@ -18,6 +19,7 @@
     "gatsby-plugin-sharp": "^2.5.1",
     "gatsby-source-filesystem": "^2.2.1",
     "gatsby-transformer-sharp": "^2.4.1",
+    "nominatim-browser": "^2.0.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0-beta.17",
     "react-dom": "^16.13.1",
