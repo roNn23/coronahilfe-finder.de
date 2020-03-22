@@ -11,9 +11,9 @@ const AddressSearch = ({ onAddressFound }) => {
     onAddressFound(address)
   }, [address])
 
-  const searchNominatim = city => {
+  const searchNominatim = postalcode => {
     return Nominatim.geocode({
-      city: city,
+      postalcode: postalcode,
       addressdetails: true,
     })
   }
@@ -26,9 +26,9 @@ const AddressSearch = ({ onAddressFound }) => {
   return (
     <>
       <Formik
-        initialValues={{ city: '' }}
+        initialValues={{ postalcode: '' }}
         onSubmit={(values, { setSubmitting }) => {
-          searchNominatim(values)
+          searchNominatim(values.postalcode)
             .then(results => {
               var { lat, lon, display_name } = results[0]
               setAddress({ lat, lon, display_name })
@@ -45,11 +45,12 @@ const AddressSearch = ({ onAddressFound }) => {
         {({ values, handleChange, handleBlur, handleSubmit, isSubmitting, resetForm }) => (
           <form onSubmit={handleSubmit}>
             <input
-              type="city"
-              name="city"
+              type="postalcode"
+              name="postalcode"
+              placeholder="PLZ"
               onChange={handleChange}
               onBlur={handleBlur}
-              value={values.city}
+              value={values.postalcode}
               disabled={isSubmitting || address}
             />
             <button type="submit" disabled={isSubmitting || address}>
@@ -65,7 +66,7 @@ const AddressSearch = ({ onAddressFound }) => {
             )}
             {error && (
               <p>
-                Es wurde leider keine Adresse für <strong>{values.city}</strong> gefunden.
+                Es wurde leider keine Adresse für <strong>{values.postalcode}</strong> gefunden.
               </p>
             )}
           </form>
