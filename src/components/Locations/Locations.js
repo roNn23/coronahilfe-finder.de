@@ -57,7 +57,7 @@ const Locations = ({ lat, lon }) => {
             <li key={id} className="comp-locations__list-item">
               <h2>{title}</h2>
               <p dangerouslySetInnerHTML={{ __html: description }}></p>
-              <p>Phone: {phone}</p>
+              {phone.length > 0 && <p>Telefon: {phone}</p>}
             </li>
           ))}
         </ul>
@@ -69,7 +69,7 @@ const Locations = ({ lat, lon }) => {
             <li key={id} className="comp-locations__list-item">
               <h2>{title}</h2>
               <p dangerouslySetInnerHTML={{ __html: description }}></p>
-              <p>Phone: {phone}</p>
+              {phone.length > 0 && <p>Telefon: {phone}</p>}
             </li>
           ))}
         </ul>
