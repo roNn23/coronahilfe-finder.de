@@ -32,13 +32,15 @@
 
 html {
   background: $color-white;
-  border-top: 5px solid map-get($light-greens, 500);
-  border-bottom: 5px solid map-get($light-blues, 500);
+  height: 100%;
 }
 
 body {
   background: $color-white;
   overflow-y: scroll;
+  border-top: 5px solid map-get($light-greens, 500);
+  border-bottom: 5px solid map-get($light-blues, 500);
+  min-height: 100%;
 }
 
 h1,
@@ -53,11 +55,13 @@ h6 {
 
 h1 {
   margin-top: 0;
+  font-weight: bold;
 }
 
 h2 {
   margin-top: 0;
   margin-bottom: map-get($spacers, 1);
+  font-weight: bold;
 }
 
 h3 {

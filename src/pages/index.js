@@ -28,8 +28,8 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title={site.siteMetadata.title} useTemplate={false} />
-      <Content padding>
-        <h1>Coronahilfe Finder</h1>
+      <Content>
+        <h1>Du brauchst Hilfe oder möchtest helfen?</h1>
         <div className="mb-7">
           <AddressSearch onAddressFound={handleAddressFound} />
         </div>

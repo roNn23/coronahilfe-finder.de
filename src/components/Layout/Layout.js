@@ -9,10 +9,8 @@ const Layout = ({ children }) => {
     <>
       <Helmet></Helmet>
       <Header />
-      <div>
-        <main>{children}</main>
-        <Footer />
-      </div>
+      <main>{children}</main>
+      <Footer />
     </>
   )
 }

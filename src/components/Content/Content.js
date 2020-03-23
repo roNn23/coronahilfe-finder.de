@@ -5,8 +5,8 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import './Content.scss'
 
-const Content = ({ children, padding, className }) => (
-  <div className={`component-content ${padding ? 'component-content--with-padding' : ''} ${className}`}>
+const Content = ({ children, className }) => (
+  <div className={`component-content ${className}`}>
     <Container>
       <Row>
         <Col lg={{ span: 10, offset: 1 }} xl={{ span: 8, offset: 2 }}>
@@ -19,7 +19,6 @@ const Content = ({ children, padding, className }) => (
 
 Content.propTypes = {
   children: PropTypes.node,
-  padding: PropTypes.bool,
   className: PropTypes.string,
 }
 
