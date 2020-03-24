@@ -13,6 +13,7 @@
     "formik": "^2.1.4",
     "gatsby": "^2.20.2",
     "gatsby-image": "^2.3.0",
+    "gatsby-plugin-google-analytics": "^2.2.1",
     "gatsby-plugin-manifest": "^2.3.1",
     "gatsby-plugin-offline": "^3.1.0",
     "gatsby-plugin-react-helmet": "^3.2.0",
