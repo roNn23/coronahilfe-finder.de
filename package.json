@@ -21,7 +21,6 @@
     "gatsby-source-filesystem": "^2.2.1",
     "gatsby-transformer-sharp": "^2.4.1",
     "geolib": "^3.2.1",
-    "nominatim-browser": "^2.0.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0-beta.17",
     "react-dom": "^16.13.1",

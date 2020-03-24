@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import * as Nominatim from 'nominatim-browser'
+import DirectusSDK from '@directus/sdk-js'
 import { Formik } from 'formik'
 import PropTypes from 'prop-types'
 import './AddressSearch.scss'
@@ -12,10 +12,19 @@ const AddressSearch = ({ onAddressFound }) => {
     onAddressFound(address)
   }, [address])
 
-  const searchNominatim = postalcode => {
-    return Nominatim.geocode({
-      postalcode: postalcode,
-      addressdetails: true,
+  const getAddress = postalcode => {
+    const client = new DirectusSDK({
+      url: 'https://directus.coronahilfe-finder.de',
+      project: 'coronahilfe-finder',
+      storage: window.localStorage,
+    })
+
+    return client.getItems('geonames', {
+      filter: {
+        postal_code: {
+          eq: postalcode,
+        },
+      },
     })
   }
 
@@ -29,14 +38,10 @@ const AddressSearch = ({ onAddressFound }) => {
       <Formik
         initialValues={{ postalcode: '' }}
         onSubmit={(values, { setSubmitting }) => {
-          searchNominatim(values.postalcode)
-            .then(results => {
-              var {
-                lat,
-                lon,
-                address: { town, city },
-              } = results[0]
-              setAddress({ lat, lon, city: town || city })
+          getAddress(values.postalcode)
+            .then(result => {
+              var { latitude, longitude, place_name } = result.data[0]
+              setAddress({ lat: latitude, lon: longitude, city: place_name })
               setError(false)
               setSubmitting(false)
             })
