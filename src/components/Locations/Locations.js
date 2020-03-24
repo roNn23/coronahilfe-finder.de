@@ -42,6 +42,10 @@ const Locations = ({ lat, lon }) => {
           city: {
             null: true,
           },
+          region: {
+            logical: 'or',
+            null: true,
+          },
         },
       })
       .then(({ data }) => {
