@@ -15,12 +15,12 @@ const ImpressumPage = () => (
         <br /> Gustav-Heinemann-Ring 14
         <br /> 63128 Dietzenbach
       </p>
-      <h3>Vertreten durch</h3>
+      <h2>Vertreten durch</h2>
       <ul>
         <li>Rebecca Wulff</li>
         <li>Ronny Neefe</li>
       </ul>
-      <h3>Kontakt</h3>
+      <h2>Kontakt</h2>
       <p>
         <strong>Telefon: </strong>0176-23181219
         <br />

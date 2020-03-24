@@ -26,8 +26,11 @@ const DatenschutzPage = () => (
         Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website durch Sie
         ermöglichen. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel
         an einen Server von Google in den USA übertragen und dort gespeichert. Mehr Informationen zum Umgang mit
-        Nutzerdaten bei Google Analytics finden Sie in der Datenschutzerklärung von
-        Google: [https://support.google.com/analytics/answer/6004245?hl=de](https://support.google.com/analytics/answer/6004245?hl=de)
+        Nutzerdaten bei Google Analytics finden Sie in der{' '}
+        <a href="https://support.google.com/analytics/answer/6004245?hl=de" target="_blank" rel="noopener noreferrer">
+          Datenschutzerklärung von Google
+        </a>
+        .
       </p>
       <h2>Browser Plugin</h2>
       <p>
@@ -35,9 +38,11 @@ const DatenschutzPage = () => (
         wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser
         Website vollumfänglich werden nutzen können. Sie können darüber hinaus die Erfassung der durch den Cookie
         erzeugten und auf Ihre Nutzung der Website bezogenen Daten (inkl. Ihrer IP-Adresse) an Google sowie die
-        Verarbeitung dieser Daten durch Google verhindern, indem Sie das unter dem folgenden Link verfügbare Browser-
-        Plugin herunterladen und
-        installieren: [https://tools.google.com/dlpage/gaoptout?hl=de](https://tools.google.com/dlpage/gaoptout?hl=de)
+        Verarbeitung dieser Daten durch Google verhindern, indem Sie das{' '}
+        <a href="https://tools.google.com/dlpage/gaoptout?hl=de" target="_blank" rel="noopener noreferrer">
+          Browser-Plugin
+        </a>{' '}
+        herunterladen und installieren.
       </p>
     </Content>
   </Layout>
