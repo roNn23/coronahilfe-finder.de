@@ -59,7 +59,7 @@ const Locations = ({ lat, lon }) => {
           ))}
         </ul>
       )}
-      <h2 className="comp-locations__headline">Angebote in ganz Deutschland</h2>
+      <h2 className="comp-locations__headline">Deutschlandweite Angebote</h2>
       {countryLocations && (
         <ul className="comp-locations__list">
           {countryLocations.map(locationData => (
