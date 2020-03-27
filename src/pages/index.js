@@ -34,7 +34,7 @@ const IndexPage = () => {
         <div className="mb-7">
           <AddressSearch onAddressFound={handleAddressFound} />
         </div>
-        {address && <Locations lat={address.lat} lon={address.lon} />}
+        {address && <Locations lat={address.lat} lon={address.lon} city={address.city} className="mb-6" />}
         <div className="mb-6">
           <h2>Worum geht&apos;s hier?</h2>
           <p>
@@ -64,8 +64,8 @@ const IndexPage = () => {
             </a>
           </p>
           <p>
-            Wir haben bereits angefangen, Facebook-Gruppen, Webseiten oder Portale zusammenzutragen. Nun sind wir auf
-            eure Mitarbeit angewiesen. <strong>Kennt ihr eine Seite, die in dieser Liste stehen sollte?</strong> Dann
+            Wir haben bereits angefangen Facebook-Gruppen, Webseiten oder Portale zusammenzutragen. Nun sind wir auf
+            deine Mitarbeit angewiesen. <strong>Kennst du eine Seite, die in unserer Liste stehen sollte?</strong> Dann
             tragt sie bitte{' '}
             <a href="https://forms.gle/twyugJya2gfdEMDB6" target="_blank" rel="noopener noreferrer">
               hier
