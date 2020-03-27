@@ -34,7 +34,7 @@ jobs:
         env:
           DEPLOY_KEY: ${{secrets.SERVER_SSH_KEY}}
         with:
-          flags: '--delete -ravb --progress'
+          flags: '--delete -rav'
           options: ''
           ssh_options: ''
           src: 'build/.'
