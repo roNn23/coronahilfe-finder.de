@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /
+
+
+# always with SSL and without www
+#RewriteCond %{ENV:HTTPS} !=on
+
+# not matching staffort-consulting.de?
+RewriteCond %{HTTP_HOST} !^coronahilfe-finder.de$ [NC]
+RewriteRule ^(.*)$ https://coronahilfe-finder.de/$1 [R=301,L]
