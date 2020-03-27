@@ -27,6 +27,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.9.0",
+    "react-loads": "^9.1.1",
     "react-reveal": "^1.2.2"
   },
   "devDependencies": {

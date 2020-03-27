@@ -3,16 +3,20 @@ import DirectusSDK from '@directus/sdk-js'
 import { Formik } from 'formik'
 import PropTypes from 'prop-types'
 import './AddressSearch.scss'
+import { AddressSearchResolved } from './AddressSearchResolved'
+import { AddressSearchNotFound } from './AddressSearchNotFound'
+import { AddressSearchError } from './AddressSearchError'
+import * as Loads from 'react-loads'
 
 const AddressSearch = ({ onAddressFound }) => {
   const [address, setAddress] = useState(null)
-  const [error, setError] = useState(false)
+  const [noAddressFound, setNoAddressFound] = useState(null)
 
   useEffect(() => {
     onAddressFound(address)
-  }, [address])
+  }, [address, onAddressFound])
 
-  const getAddress = postalcode => {
+  async function fetchCity(postalcode) {
     const client = new DirectusSDK({
       url: 'https://directus.coronahilfe-finder.de',
       project: 'coronahilfe-finder',
@@ -28,8 +32,29 @@ const AddressSearch = ({ onAddressFound }) => {
     })
   }
 
+  const { response, error, load, isIdle, isResolved, reset } = Loads.useDeferredLoads('city', fetchCity)
+
+  useEffect(() => {
+    if (!response) {
+      return
+    }
+
+    const { data } = response
+
+    if (!data.length) {
+      setNoAddressFound(true)
+      return
+    }
+
+    var { latitude, longitude, place_name } = data[0]
+
+    setAddress({ lat: latitude, lon: longitude, city: place_name })
+  }, [response])
+
   const handleNewSearchClick = resetForm => {
     setAddress(null)
+    setNoAddressFound(null)
+    reset()
     resetForm()
   }
 
@@ -37,24 +62,13 @@ const AddressSearch = ({ onAddressFound }) => {
     <div className="comp-address-search">
       <Formik
         initialValues={{ postalcode: '' }}
-        onSubmit={(values, { setSubmitting }) => {
-          getAddress(values.postalcode)
-            .then(result => {
-              var { latitude, longitude, place_name } = result.data[0]
-              setAddress({ lat: latitude, lon: longitude, city: place_name })
-              setError(false)
-              setSubmitting(false)
-            })
-            .catch(error => {
-              setAddress(null)
-              setError(true)
-              setSubmitting(false)
-            })
+        onSubmit={values => {
+          load(values.postalcode)
         }}
       >
         {({ values, handleChange, handleBlur, handleSubmit, isSubmitting, resetForm }) => (
           <>
-            {!address && (
+            {!isResolved && (
               <form onSubmit={handleSubmit} className="comp-address-search__form">
                 <input
                   type="postalcode"
@@ -63,12 +77,12 @@ const AddressSearch = ({ onAddressFound }) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.postalcode}
-                  disabled={isSubmitting || address}
+                  disabled={!isIdle}
                   className="comp-address-search__input"
                 />
                 <button
                   type="submit"
-                  disabled={isSubmitting || address}
+                  disabled={!isIdle || !values.postalcode.length}
                   className="btn btn-primary comp-address-search__submit"
                 >
                   Suche
@@ -76,22 +90,18 @@ const AddressSearch = ({ onAddressFound }) => {
               </form>
             )}
             <div className="comp-address-search__result">
-              {address && (
-                <p>
-                  Folgende Stadt wurde gefunden: <strong>{address.city}</strong>
-                  <br />
-                  <button
-                    onClick={handleNewSearchClick.bind(null, resetForm)}
-                    className="btn btn-primary comp-address-search__reset"
-                  >
-                    Neue Suche starten
-                  </button>
-                </p>
+              {isResolved && (
+                <AddressSearchResolved
+                  city={address && address.city}
+                  onClickButton={handleNewSearchClick.bind(null, resetForm)}
+                />
               )}
-              {error && (
-                <p>
-                  Es wurde leider keine Adresse für <strong>{values.postalcode}</strong> gefunden.
-                </p>
+              {error && <AddressSearchError onClickButton={handleNewSearchClick.bind(null, resetForm)} />}
+              {noAddressFound && (
+                <AddressSearchNotFound
+                  input={values.postalcode}
+                  onClickButton={handleNewSearchClick.bind(null, resetForm)}
+                />
               )}
             </div>
           </>
