@@ -1,8 +1,6 @@
 name: build and deploy
 on:
-  push:
-    branches:
-      - master
+  push
 
 jobs:
   build:
@@ -21,9 +19,10 @@ jobs:
           name: build
           path: public
 
-  deploy:
+  deploy stage:
     needs: build
     runs-on: ubuntu-latest
+    if: !contains(github.ref, "master")
     steps:
       - name: Download build
         uses: actions/download-artifact@v1
@@ -38,4 +37,24 @@ jobs:
           options: ''
           ssh_options: ''
           src: 'build/.'
-          dest: '${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.REMOTE_TARGET }}'
+          dest: '${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.PATH_STAGE }}'
+
+  deploy live:
+    needs: build
+    runs-on: ubuntu-latest
+    if: contains(github.ref, "master")
+    steps:
+      - name: Download build
+        uses: actions/download-artifact@v1
+        with:
+          name: build
+      #- name: Deploy to Live server
+      #  uses: Pendect/action-rsyncer@v1.1.0
+      #  env:
+      #    DEPLOY_KEY: ${{secrets.SERVER_SSH_KEY}}
+      #  with:
+      #    flags: '--delete -rav'
+      #    options: ''
+      #    ssh_options: ''
+          #src: 'build/.'
+          #dest: '${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.PATH_LIVE }}'
