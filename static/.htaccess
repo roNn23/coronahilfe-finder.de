@@ -1,12 +1,8 @@
 RewriteEngine On
 RewriteBase /
 
-# Stage-Env
-RewriteCond %{HTTP_HOST} !^stage.coronahilfe-finder.de$ [NC]
-RewriteRule ^(.*)$ https://stage.coronahilfe-finder.de/$1 [R=301,L]
-
-# always without www. and no other domains allowed
-RewriteCond %{HTTP_HOST} !^coronahilfe-finder.de$ [NC]
+# always without www. and no other domains (except stage) allowed
+RewriteCond %{HTTP_HOST} !^(stage).coronahilfe-finder.de$ [NC]
 RewriteRule ^(.*)$ https://coronahilfe-finder.de/$1 [R=301,L]
 
 ErrorDocument 404 /404/
