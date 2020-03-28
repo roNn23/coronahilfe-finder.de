@@ -10,6 +10,16 @@
   padding-top: spacerMap(6);
   padding-bottom: spacerMap(6);
 
+  &__env {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: colorMap(green, light);
+    padding: spacerMap(2);
+    font-size: $font-size-xsm;
+    font-weight: bold;
+  }
+
   @include media-breakpoint-up(md) {
     padding-top: spacerMap(7);
     padding-bottom: spacerMap(7);
