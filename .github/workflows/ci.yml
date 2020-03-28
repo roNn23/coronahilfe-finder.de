@@ -19,7 +19,7 @@ jobs:
           name: build
           path: public
 
-  deploy stage:
+  deploy-stage:
     needs: build
     runs-on: ubuntu-latest
     if: contains(github.ref, "stage")
@@ -39,7 +39,7 @@ jobs:
           src: 'build/.'
           dest: '${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.PATH_STAGE }}'
 
-  deploy live:
+  deploy-live:
     needs: build
     runs-on: ubuntu-latest
     if: contains(github.ref, "master")
