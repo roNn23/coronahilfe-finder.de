@@ -106,6 +106,7 @@ const IndexPage = () => {
             <a href="https://www.bundesgesundheitsministerium.de/coronavirus.html/">Bundesministerium für Gesundheit</a>
           </li>
         </ul>
+        <p>Stage Test</p>
       </Content>
     </Layout>
   )
