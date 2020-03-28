@@ -1,6 +1,8 @@
-name: build and deploy
+name: build and deploy stage
 on:
-  push
+  push:
+    branches:
+      - stage
 
 jobs:
   build:
@@ -13,16 +15,17 @@ jobs:
           node-version: '12.x'
       - run: yarn install
       - run: yarn run build
+        env:
+          ENV_NAME: 'stage'
       - name: Archive public artifact
         uses: actions/upload-artifact@v1
         with:
           name: build
           path: public
 
-  deploy-stage:
+  deploy:
     needs: build
     runs-on: ubuntu-latest
-    if: contains(github.ref, 'stage')
     steps:
       - name: Download build
         uses: actions/download-artifact@v1
@@ -39,15 +42,15 @@ jobs:
           src: 'build/.'
           dest: '${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.PATH_STAGE }}'
 
-  deploy-live:
-    needs: build
-    runs-on: ubuntu-latest
-    if: contains(github.ref, 'master')
-    steps:
-      - name: Download build
-        uses: actions/download-artifact@v1
-        with:
-          name: build
+  #deploy-live:
+  #  needs: build
+  #  runs-on: ubuntu-latest
+  #  if: contains(github.ref, 'master')
+  #  steps:
+   #   - name: Download build
+   #     uses: actions/download-artifact@v1
+   #     with:
+    #      name: build
       #- name: Deploy to Live server
       #  uses: Pendect/action-rsyncer@v1.1.0
       #  env:
