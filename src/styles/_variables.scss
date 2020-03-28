@@ -167,7 +167,7 @@ $enable-responsive-font-sizes: true !default;
 $font-family-sans-serif: 'Montserrat', 'sans-serif';
 $headings-font-family: 'Baloo 2', 'sans-serif';
 $headings-font-weight: 400;
-$headings-color: map-get($dark-blues, 500);
+$headings-color: colorMap(blue, dark, 500);
 
 $font-size-base: 1.1rem !default; // Assumes the browser default, typically `16px`
 $font-size-lg: $font-size-base * 1.25 !default;
