@@ -173,6 +173,7 @@ $font-size-base: 1.1rem !default; // Assumes the browser default, typically `16p
 $font-size-lg: $font-size-base * 1.25 !default;
 $font-size-md: $font-size-base * 0.875 !default;
 $font-size-sm: $font-size-base * 0.8 !default;
+$font-size-xsm: $font-size-base * 0.5 !default;
 
 $h1-font-size: $font-size-base * 1.8 !default;
 $h2-font-size: $font-size-base * 1.4 !default;
