@@ -106,7 +106,7 @@ const IndexPage = () => {
             <a href="https://www.bundesgesundheitsministerium.de/coronavirus.html/">Bundesministerium für Gesundheit</a>
           </li>
         </ul>
-        <p>{`${process.env.ENV_NAME}`}</p>
+        <p>{`${process.env.GATSBY_ENV}`}</p>
       </Content>
     </Layout>
   )
