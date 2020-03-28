@@ -1,12 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './LocationsListItem.scss'
 
-const LocationsListItem = ({ title, city, region, description, phone, opening_hours, offers, website }) => {
+const LocationsListItem = ({ title, city, region, description, phone, opening_hours, offers, website, distance }) => {
+  const distanceInKm = distance / 1000
+  const distanceInKmRounded = Math.round((distanceInKm + Number.EPSILON) * 100) / 100
+  const place = city || region
+
   return (
-    <li className="comp-locations__list-item">
-      <h3>{title}</h3>
-      {city && <p className="badge badge-secondary mr-2">{city}</p>}
-      {region && <p className="badge badge-secondary mr-2">{region}</p>}
+    <li className="comp-locations-list-item">
+      <div className="comp-locations-list-item__header">
+        <h3>{title}</h3>
+        {place && (
+          <p className="badge mr-2 comp-locations-list-item__place-badge">
+            {place} ({distanceInKmRounded} km)
+          </p>
+        )}
+      </div>
       {description && <p dangerouslySetInnerHTML={{ __html: description }}></p>}
       {opening_hours && (
         <p>
@@ -48,6 +58,7 @@ LocationsListItem.propTypes = {
   description: PropTypes.string,
   phone: PropTypes.array,
   website: PropTypes.string,
+  distance: PropTypes.number,
 }
 
 export default LocationsListItem

@@ -14,12 +14,64 @@
     padding: 0;
   }
 
-  &__list-item {
-    border: 1px solid grayMap(300);
-    padding: spacerMap(4);
+  &__headline-select {
+    $p: &;
+    box-sizing: border-box;
+    border-radius: 0;
+    display: inline-block;
+    color: $headings-color;
+    font-weight: 700;
+    position: relative;
+    padding-right: 10px;
 
-    &:not(:last-child) {
-      margin-bottom: spacerMap(4);
+    &__control {
+      border-radius: 0 !important;
+      border: 1px solid colorMap(green, dark, 200) !important;
+      background: none !important;
+      box-shadow: none !important;
+
+      &--is-focused {
+        border: 1px solid colorMap(green, dark, 500) !important;
+      }
+
+      &:hover,
+      &--is-focused {
+        #{$p}__indicator-separator {
+          background-color: colorMap(green, dark, 500) !important;
+        }
+
+        #{$p}__dropdown-indicator {
+          svg {
+            fill: colorMap(green, dark, 500);
+          }
+        }
+      }
+    }
+
+    &__indicator-separator {
+      background-color: colorMap(green, dark, 200) !important;
+    }
+
+    &__dropdown-indicator {
+      svg {
+        fill: colorMap(green, dark, 200);
+      }
+    }
+
+    &__value-container {
+      width: 100px;
+    }
+
+    &__single-value {
+      color: colorMap(green, dark, 500) !important;
+    }
+
+    &__option--is-focused {
+      background: colorMap(green, dark, 100) !important;
+    }
+
+    &__option--is-selected {
+      background: $headings-color !important;
     }
   }
 }

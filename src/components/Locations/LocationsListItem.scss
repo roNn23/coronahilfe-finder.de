@@ -1,0 +1,21 @@
+@import '../../styles/variables';
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/mixins';
+
+.comp-locations-list-item {
+  border: 1px solid grayMap(300);
+  padding: spacerMap(4);
+  position: relative;
+
+  &:not(:last-child) {
+    margin-bottom: spacerMap(4);
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}

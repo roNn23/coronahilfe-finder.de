@@ -11,6 +11,7 @@
     "@directus/sdk-js": "^6.0.5",
     "bootstrap": "^4.4.1",
     "classnames": "^2.2.6",
+    "fast-sort": "^2.1.1",
     "formik": "^2.1.4",
     "gatsby": "^2.20.2",
     "gatsby-image": "^2.3.0",
@@ -29,7 +30,8 @@
     "react-helmet": "^5.2.1",
     "react-icons": "^3.9.0",
     "react-loads": "^9.1.1",
-    "react-reveal": "^1.2.2"
+    "react-reveal": "^1.2.2",
+    "react-select": "^3.1.0"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^2.24.0",
