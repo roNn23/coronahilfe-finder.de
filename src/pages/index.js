@@ -31,7 +31,7 @@ const IndexPage = () => {
       <Content>
         <h1>Du brauchst Hilfe oder möchtest helfen?</h1>
         <p>Finde Hilfesuchende in deinem Umkreis oder Hilfsangebote in einer bestimmten Stadt!</p>
-        <div className="mb-7">
+        <div className="mb-6">
           <AddressSearch onAddressFound={handleAddressFound} />
         </div>
         {address && <Locations lat={address.lat} lon={address.lon} city={address.city} className="mb-6" />}
