@@ -19,7 +19,7 @@
     box-sizing: border-box;
     border-radius: 0;
     display: inline-block;
-    color: $headings-color;
+    color: colorMap(green, dark, 500);
     font-weight: 700;
     position: relative;
     padding-right: 10px;
@@ -71,7 +71,7 @@
     }
 
     &__option--is-selected {
-      background: $headings-color !important;
+      background: colorMap(green, dark) !important;
     }
   }
 }
