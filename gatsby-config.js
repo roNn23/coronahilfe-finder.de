@@ -1,7 +1,30 @@
 module.exports = {
   siteMetadata: {
     title: 'Coronahilfe Finder',
-    description: 'Finde Coronahilfe in deiner Stadt',
+    siteUrl: 'https://coronahilfe-finder.de',
+    description: 'Finde Coronahilfen in deiner Stadt',
+    imageUrl: 'https://coronahilfe-finder.de/og-image.png',
+    imageType: 'image/png',
+    imageWidth: 587,
+    imageHeight: 173,
+    menu: [
+      {
+        name: 'Regionale Hilfen',
+        path: '/regional/',
+      },
+      {
+        name: 'Deutschlandweite Hilfen',
+        path: '/national/',
+      },
+      {
+        name: 'Mithelfen',
+        path: '/mithelfen/',
+      },
+      {
+        name: 'Über uns',
+        path: '/ueber-uns/',
+      },
+    ],
   },
   plugins: [
     {
@@ -20,9 +43,14 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-create-client-paths',
+      options: { prefixes: ['/regional/*'] },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-force-trailing-slashes',
   ],
 }
