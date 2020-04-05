@@ -15,6 +15,8 @@
     "formik": "^2.1.4",
     "gatsby": "^2.20.2",
     "gatsby-image": "^2.3.0",
+    "gatsby-plugin-create-client-paths": "^2.2.1",
+    "gatsby-plugin-force-trailing-slashes": "^1.0.4",
     "gatsby-plugin-google-analytics": "^2.2.1",
     "gatsby-plugin-manifest": "^2.3.1",
     "gatsby-plugin-offline": "^3.1.0",
@@ -29,6 +31,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.9.0",
+    "react-loader-spinner": "^3.1.5",
     "react-loads": "^9.1.1",
     "react-reveal": "^1.2.2",
     "react-select": "^3.1.0"

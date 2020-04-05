@@ -3,19 +3,30 @@
 @import '../../../node_modules/bootstrap/scss/variables';
 @import '../../../node_modules/bootstrap/scss/mixins';
 
-.comp-locations-list-item {
+.comp-offers-list-item {
   border: 1px solid grayMap(300);
-  padding: spacerMap(4);
+  padding: spacerMap(3);
   position: relative;
 
   &:not(:last-child) {
-    margin-bottom: spacerMap(4);
+    margin-bottom: spacerMap(5);
   }
 
   &__header {
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     justify-content: space-between;
     align-items: flex-start;
+
+    @include media-breakpoint-up(md) {
+      flex-direction: row;
+    }
+  }
+
+  &__place-badge {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    background: $color-white;
   }
 }

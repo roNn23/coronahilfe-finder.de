@@ -1,13 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import Content from '../components/Content'
-import AddressSearch from '../components/AddressSearch'
-import Locations from '../components/Locations'
+import PostalCodeForm from '../components/PostalCodeForm'
 
 const IndexPage = () => {
-  const [address, setAddress] = useState(null)
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -21,10 +19,6 @@ const IndexPage = () => {
     `,
   )
 
-  const handleAddressFound = address => {
-    setAddress(address)
-  }
-
   return (
     <Layout>
       <SEO title={site.siteMetadata.title} useTemplate={false} />
@@ -32,29 +26,15 @@ const IndexPage = () => {
         <h1>Du brauchst Hilfe oder möchtest helfen?</h1>
         <p>Finde Hilfesuchende in deinem Umkreis oder Hilfsangebote in einer bestimmten Stadt!</p>
         <div className="mb-6">
-          <AddressSearch onAddressFound={handleAddressFound} />
+          <PostalCodeForm />
         </div>
-        {address && <Locations lat={address.lat} lon={address.lon} city={address.city} className="mb-6" />}
         <div className="mb-6">
           <h2>Worum geht&apos;s hier?</h2>
           <p>
             Kurz und knapp:{' '}
-            <strong>
-              Ziel dieser Seite ist es, möglichst alle sozialen Coronahilfen in Deutschland auffindbar zu machen.
-            </strong>
+            <strong>Ziel dieser Seite ist es, möglichst alle Coronahilfen in Deutschland auffindbar zu machen.</strong>
           </p>
         </div>
-
-        {/*  <p>
-          Wir erleben gerade eine sehr intensive Zeit, wie wir sie so (zumindest in Europa) schon lange nicht mehr
-          durchstehen mussten. Das Corona-Virus hält die Welt in Atem, wir spüren aber auch eine unglaubliche Welle an
-          Solidarität. Überall sprießen Hilfsangebote aus dem Boden: Gemeinden, Schülerinnen und Schüler, Studierende
-          oder Nachbarn schließen sich zusammen, um für Personen der Risikogruppe einkaufen zu gehen, Erledigungen zu
-          machen oder einfach nur da zu sein, wenn Redebedarf besteht. Die meisten dieser Angebote sind spontan
-          entstanden und schwer zu finden. Vor allem, wenn man sich beispielsweise um eine Person in Bielefeld sorgt,
-          die Hilfe benötigt und selbst aber in München wohnt.
-        </p> */}
-
         <div className="mb-6">
           <h2>Wir brauchen dich!</h2>
           <p>
@@ -70,7 +50,7 @@ const IndexPage = () => {
             <a href="https://forms.gle/twyugJya2gfdEMDB6" target="_blank" rel="noopener noreferrer">
               hier
             </a>{' '}
-            ein. Wir werden sie so schnell wir möglich prüfen und in die Liste aufnehmen.
+            ein. Wir werden sie so schnell wie möglich prüfen und in die Liste aufnehmen.
           </p>
         </div>
 
@@ -100,10 +80,18 @@ const IndexPage = () => {
         <h2>Weitere Informationen zu Covid-19</h2>
         <ul>
           <li>
-            <a href="https://www.infektionsschutz.de/coronavirus/">Bundeszentrale für Gesundheitliche Aufklärung</a>
+            <a href="https://www.infektionsschutz.de/coronavirus/" target="_blank" rel="noopener noreferrer">
+              Bundeszentrale für Gesundheitliche Aufklärung
+            </a>
           </li>
           <li>
-            <a href="https://www.bundesgesundheitsministerium.de/coronavirus.html/">Bundesministerium für Gesundheit</a>
+            <a
+              href="https://www.bundesgesundheitsministerium.de/coronavirus.html/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Bundesministerium für Gesundheit
+            </a>
           </li>
         </ul>
       </Content>

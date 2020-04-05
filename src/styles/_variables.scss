@@ -161,7 +161,7 @@ $btn-border-radius: 5px;
 $spacer: 1.5rem;
 
 $grid-gutter-width: 45px !default;
-$enable-responsive-font-sizes: true !default;
+$enable-responsive-font-sizes: false !default;
 
 @import url('https://fonts.googleapis.com/css?family=Baloo+2:400,600|Montserrat:400,700&display=swap');
 $font-family-sans-serif: 'Montserrat', 'sans-serif';
@@ -169,20 +169,20 @@ $headings-font-family: 'Baloo 2', 'sans-serif';
 $headings-font-weight: 400;
 $headings-color: colorMap(blue, dark, 500);
 
-$font-size-base: 1.1rem !default; // Assumes the browser default, typically `16px`
-$font-size-lg: $font-size-base * 1.25 !default;
-$font-size-md: $font-size-base * 0.875 !default;
-$font-size-sm: $font-size-base * 0.8 !default;
-$font-size-xsm: $font-size-base * 0.5 !default;
+$font-size-base: 1.05rem !default; // Assumes the browser default, typically `16px`
+$font-size-lg: $font-size-base * 1.2 !default;
+$font-size-md: $font-size-base * 0.85 !default;
+$font-size-sm: $font-size-base * 0.7 !default;
+$font-size-xsm: $font-size-base * 0.4 !default;
 
-$h1-font-size: $font-size-base * 1.8 !default;
-$h2-font-size: $font-size-base * 1.4 !default;
-$h3-font-size: $font-size-base * 1.25 !default;
-$h4-font-size: $font-size-base * 1.1 !default;
+$h1-font-size: $font-size-base * 1.7 !default;
+$h2-font-size: $font-size-base * 1.3 !default;
+$h3-font-size: $font-size-base * 1.2 !default;
+$h4-font-size: $font-size-base * 1 !default;
 $h5-font-size: $font-size-base * 0.9 !default;
 $h6-font-size: $font-size-base !default;
 
-$lead-font-size: $font-size-base * 2.25 !default;
+$lead-font-size: $font-size-base * 2 !default;
 
 $link-color: map-get($grays, 1000) !default;
 $link-decoration: underline !default;

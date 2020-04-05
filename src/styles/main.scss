@@ -21,11 +21,14 @@
 @import '../../node_modules/bootstrap/scss/transitions';
 @import '../../node_modules/bootstrap/scss/images';
 @import '../../node_modules/bootstrap/scss/utilities';
+@import '../../node_modules/bootstrap/scss/alert';
 
 // utilities
 @import '../../node_modules/bootstrap/scss/utilities/background';
 @import '../../node_modules/bootstrap/scss/utilities/borders';
 @import '../../node_modules/bootstrap/scss/utilities/spacing';
+
+@import '../../node_modules/react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 *:last-child {
   margin-bottom: 0;
@@ -50,7 +53,6 @@ h3,
 h4,
 h5,
 h6 {
-  letter-spacing: 0.5px;
   margin-top: map-get($spacers, 5);
 }
 
@@ -86,10 +88,6 @@ h6 {
 
 h2 + h3 {
   margin-top: map-get($spacers, 2);
-}
-
-p {
-  letter-spacing: 0.2px;
 }
 
 a {

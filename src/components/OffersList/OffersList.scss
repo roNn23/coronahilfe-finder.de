@@ -3,7 +3,7 @@
 @import '../../../node_modules/bootstrap/scss/variables';
 @import '../../../node_modules/bootstrap/scss/mixins';
 
-.comp-locations {
+.comp-offers-list {
   &__headline {
     margin-bottom: spacerMap(3);
   }
@@ -14,15 +14,58 @@
     padding: 0;
   }
 
+  &__filter-wrap {
+    margin-bottom: spacerMap(5);
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+
+    @include media-breakpoint-up(md) {
+      flex-direction: row;
+    }
+  }
+
+  &__filter-item {
+    white-space: nowrap;
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: spacerMap(2);
+
+      @include media-breakpoint-up(md) {
+        margin-bottom: 0;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      width: auto;
+    }
+  }
+
+  &__filter-label {
+    font-weight: bold;
+    margin-right: spacerMap(2);
+  }
+
   &__headline-select {
     $p: &;
     box-sizing: border-box;
     border-radius: 0;
-    display: inline-block;
+    display: block;
     color: colorMap(green, dark, 500);
     font-weight: 700;
     position: relative;
-    padding-right: 10px;
+
+    @include media-breakpoint-up(md) {
+      display: inline-block;
+      padding-right: 10px;
+    }
+
+    &--filter {
+      #{$p}__value-container {
+        width: 200px;
+      }
+    }
 
     &__control {
       border-radius: 0 !important;
@@ -73,5 +116,9 @@
     &__option--is-selected {
       background: colorMap(green, dark) !important;
     }
+  }
+
+  &__list-headline {
+    margin-bottom: spacerMap(3);
   }
 }

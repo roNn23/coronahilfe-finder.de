@@ -1,0 +1,14 @@
+@import '../../styles/variables';
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/mixins';
+
+.comp-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__text {
+    margin-left: spacerMap(2);
+  }
+}

@@ -11,6 +11,10 @@ function SEO({ description, lang, meta, title, useTemplate }) {
           siteMetadata {
             title
             description
+            imageUrl
+            imageType
+            imageWidth
+            imageHeight
           }
         }
       }
@@ -43,6 +47,22 @@ function SEO({ description, lang, meta, title, useTemplate }) {
         {
           property: 'og:type',
           content: 'website',
+        },
+        {
+          property: 'og:image',
+          content: site.siteMetadata.imageUrl,
+        },
+        {
+          property: 'og:image:type',
+          content: site.siteMetadata.imageType,
+        },
+        {
+          property: 'og:image:width',
+          content: site.siteMetadata.imageWidth,
+        },
+        {
+          property: 'og:image:height',
+          content: site.siteMetadata.imageHeight,
         },
       ].concat(meta)}
     />

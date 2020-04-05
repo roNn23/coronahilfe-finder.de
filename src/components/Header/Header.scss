@@ -4,9 +4,6 @@
 @import '../../../node_modules/bootstrap/scss/mixins';
 
 .component-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding-top: spacerMap(6);
   padding-bottom: spacerMap(6);
 
@@ -28,13 +25,5 @@
   @include media-breakpoint-up(lg) {
     padding-top: spacerMap(8);
     padding-bottom: spacerMap(8);
-  }
-
-  &__logo-wrap {
-    width: 250px;
-
-    @include media-breakpoint-up(md) {
-      width: 300px;
-    }
   }
 }

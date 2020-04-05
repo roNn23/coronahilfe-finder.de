@@ -1,0 +1,85 @@
+@import '../../styles/variables';
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/mixins';
+
+.comp-navigation {
+  &__logo {
+    width: 150px;
+
+    @include media-breakpoint-up(md) {
+      width: 200px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      width: 300px;
+    }
+  }
+
+  &__navbar {
+    padding: 0;
+
+    @include media-breakpoint-up(md) {
+      flex-direction: column;
+    }
+  }
+
+  &__navbar-brand {
+    margin-right: 0;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: spacerMap(4);
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: spacerMap(6);
+    }
+  }
+
+  &__nav {
+    padding-top: spacerMap(6);
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+      text-align: left;
+      padding-top: 0;
+    }
+  }
+
+  &__nav-link-wrap {
+    position: relative;
+    margin-bottom: spacerMap(1);
+
+    &:last-child .navigation__subnav {
+      @include media-breakpoint-up(md) {
+        right: 0;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      &:not(:last-of-type) {
+        margin-right: spacerMap(6);
+      }
+
+      &:hover {
+        .navigation__subnav {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__nav-link {
+    position: relative;
+    text-decoration: none;
+    color: colorMap(green, dark);
+    font-size: $font-size-base;
+    transition: all 250ms ease-in;
+
+    &--active,
+    &:hover {
+      text-decoration: none;
+      color: colorMap(green, dark, 800);
+    }
+  }
+}
