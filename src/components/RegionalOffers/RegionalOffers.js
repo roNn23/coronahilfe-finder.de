@@ -12,6 +12,7 @@ const RegionalOffers = ({ lat, lon, city, categoryId }) => {
   const [filteredOffers, setFilteredOffers] = useState([])
   const tags = useTags(categoryId)
   const offers = useRegionalOffers(lat, lon, perimeter, categoryId)
+  const [status, setStatus] = useState('pending')
 
   useEffect(() => {
     const filterOptions = []
@@ -24,6 +25,7 @@ const RegionalOffers = ({ lat, lon, city, categoryId }) => {
   }, [tags, filterOptions])
 
   useEffect(() => {
+    setStatus('loaded')
     setLoadedOffers(offers)
     setFilteredOffers(offers)
 
@@ -72,8 +74,8 @@ const RegionalOffers = ({ lat, lon, city, categoryId }) => {
   return (
     <>
       <h1>Hilfsangebote in {city}</h1>
-      {!loadedOffers.length && <Loading text={'Lade Hilfsangebote'} />}
-      {loadedOffers.length > 0 && (
+      {status === 'pending' && <Loading text={'Lade Hilfsangebote'} />}
+      {status === 'loaded' && (
         <OffersList
           offers={filteredOffers}
           radiusOptions={[
