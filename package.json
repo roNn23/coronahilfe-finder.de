@@ -44,7 +44,7 @@
     "node-sass": "^4.13.1",
     "prettier": "^1.19.1",
     "prop-types": "^15.7.2",
-    "stylelint": "^13.2.1",
+    "stylelint": "^15.10.1",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-scss": "^3.16.0",
     "typescript": "^3.8.3"
